@@ -1,4 +1,5 @@
 ---
+title: 05 Database Replication
 tags:
   - systemdesign
   - database

@@ -1,4 +1,5 @@
 ---
+title: 04 Key-Value Store
 tags:
   - system
   - systemdesign

@@ -1,4 +1,5 @@
 ---
+title: 12 GraphQL
 tags:
   - systemdesign
   - graphql

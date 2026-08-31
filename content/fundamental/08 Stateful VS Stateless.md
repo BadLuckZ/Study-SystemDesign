@@ -1,4 +1,5 @@
 ---
+title: 08 Stateful VS Stateless
 tags:
   - systemdesign
   - stateful

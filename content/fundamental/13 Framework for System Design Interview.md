@@ -1,4 +1,5 @@
 ---
+title: 13 Framework for System Design Interview
 tags:
   - systemdesign
   - interview

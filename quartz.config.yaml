@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: plausible
   locale: en-US
-  baseUrl: badluckz.github.io/quartz
+  baseUrl: badluckz.github.io/Study-SystemDesign
   ignorePatterns:
     - private
     - templates
@@ -230,13 +230,19 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        GitHub: https://github.com/BadLuckZ/Study-SystemDesign
     layout:
       position: footer
       priority: 50
   - source: "@quartz-community/recent-notes"
-    enabled: false
+    enabled: true
+    options:
+      title: อัปเดตล่าสุด
+      limit: 5
+      showTags: false
+    layout:
+      position: left
+      priority: 15
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}

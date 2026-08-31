@@ -1,4 +1,5 @@
 ---
+title: 07 CDN (Content Delivery Network)
 tags:
   - database_optimization
   - systemdesign

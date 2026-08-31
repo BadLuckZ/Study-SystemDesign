@@ -1,4 +1,5 @@
 ---
+title: 01 Database
 tags:
   - database
   - systemdesign

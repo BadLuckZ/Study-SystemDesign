@@ -1,4 +1,5 @@
 ---
+title: 02 Load Balancer
 tags:
   - database
   - systemdesign

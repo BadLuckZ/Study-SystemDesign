@@ -1,4 +1,5 @@
 ---
+title: 06 Cache
 tags:
   - database
   - database_optimization
