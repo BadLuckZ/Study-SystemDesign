@@ -1,5 +1,5 @@
 ---
-title: Fundamental of System Design
+title: Fundamental
 tags:
   - systemdesign
   - fundamental
