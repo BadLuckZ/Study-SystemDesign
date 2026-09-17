@@ -77,6 +77,8 @@ Refresh Token Rotation แก้ปัญหานี้ด้วยการอ
 1. JS เข้าถึง httpOnly Cookie ไม่ได้ เลยปลอดภัยจาก XSS แต่ localStorage จะถูก JS เข้าถึงได้ เลยเสี่ยง XSS มากกว่า
 2. httpOnly Cookie จะมีการให้ Browser แนบไปกับ Request อัตโนมัติ เลยจะเสี่ยงต่อ CSRF แต่ localStorage จะต้องเขียน code แนบเอง เลยปลอดภัยจาก CSRF มากกว่า
 
+แล้วถ้าสงสัยว่า Cookie คืออะไร อ่านต่อได้ใน [[04 Cookie|Cookie]]
+
 >[!Note] XSS and CSRF
 > **XSS (Cross-Site Scripting)** คือการฝังโค้ด JavaScript เข้ามารันในหน้าเว็บของเรา ถ้า Token อยู่ใน localStorage โค้ดนั้นจะอ่านออกไปได้ทันทีด้วยคำสั่งบรรทัดเดียว แต่ถ้าอยู่ใน httpOnly Cookie จะอ่านไม่ได้เลย เพราะ Browser ปิดกั้นไม่ให้ JavaScript แตะต้อง
 > 
