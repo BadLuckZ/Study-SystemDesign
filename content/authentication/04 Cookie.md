@@ -4,6 +4,7 @@ tags:
   - systemdesign
   - authentication
   - cookie
+  - access_token
 ---
 ย้อนกลับไปในเรื่อง Token คือปัญหาของ HTTP คือมันไม่มี Memory มันไม่สามารถจำได้ว่า Request นี้มาจากใคร เพราะงั้นเราเลยมี Concept ที่ทำให้ HTTP รู้ได้ว่าใครเป็นส่ง Request นี้มา 
 
@@ -55,5 +56,9 @@ Server ก็จะรู้ว่า อ๋อ Request นี้มาจาก
 XSS (Criss-Site Scripting) คือการที่ attacker ฝัง JavaScript Code เข้ามาในหน้าเว็บของเรา เพื่ออ่านข้อมูลใน Cookie -> ทางแก้ก็คือการกำหนด `HttpOnly` ใน Cookie เพื่อไม่ให้ JavaScript อ่านได้นี่แหละ
 
 CSRF (Cross-Site Request Forgery) คือการใช้ลักษณะของ Browser ที่จะแนบ Cookie เข้าไปใน Request ทุกครั้ง ผ่านการหลอกให้ Browser ยิง Request ไปหา Web ปลอมของตน เพื่อที่จะได้ Cookie มา -> ทางแก้ก็คือ `SameSite` นี่แหละ ที่เป็นการบอก Browser ว่าไม่ต้องส่ง Cookie นี้ให้ Web อื่น
+
+---
+
+สุดท้าย ด้วยลักษณะของ Cookie ที่ทำให้เรารู้ว่า Browser มันมี Area ไว้ให้ Store ข้อมูลได้ และเราสามารถปรับให้ Cookie สามารถป้องกัน XSS และ CSRF ได้ เราก็เลยสามารถเอา Cookie เนี่ย มาใช้เก็บ Access Token เพื่อใช้เป็นตัวส่งข้อมูลที่ต้องใช้ verify User ได้นั่นเอง ตามที่ได้เขียนไว้ใน [[01 Access Token|Access Token]] และ [[02 Refresh Token|Refresh Token]]
 
 ---
