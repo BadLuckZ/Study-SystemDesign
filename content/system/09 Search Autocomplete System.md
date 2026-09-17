@@ -82,7 +82,7 @@ Trie คือ Data Structure ที่มีการ visualize ในรูป
 โดยเราสามารถ optimize เพิ่มเติมได้ ผ่านการ cache ผลลัพธ์การค้นหา top n ว่าเป็นคำว่าอะไร ไว้ในทุกๆ nodes ตามภาพนี้
 ![[search_autocomplete_trie_ds_cache.png]]
 
-ในที่นี้ สมมติว่า user พิมพ์คำว่า be และสนใจ top n = top 5 ตามที่ requirement กำหนดว่า ระบบก็จะ suggest 5 คำ คือคำว่า best, bet, bee, bee, buy แบบอัตโนมัติ และรวดเร็วกว่า case ปกติ เพราะมีการ cache ผลลัพธ์การ query ไว้แล้วนั่นเอง
+ในที่นี้ สมมติว่า user พิมพ์คำว่า be และสนใจ top n = top 5 ตามที่ requirement กำหนดว่า ระบบก็จะ suggest 5 คำ คือคำว่า best, bet, bee, be, buy แบบอัตโนมัติ และรวดเร็วกว่า case ปกติ เพราะมีการ cache ผลลัพธ์การ query ไว้แล้วนั่นเอง
 
 ### Data Gathering Service
 
