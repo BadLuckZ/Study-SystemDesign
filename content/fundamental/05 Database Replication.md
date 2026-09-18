@@ -5,6 +5,7 @@ tags:
   - database
   - database_optimization
   - database_replication
+  - fundamental
 ---
 ![[database_replication.png]]
 

@@ -5,6 +5,7 @@ tags:
   - database_optimization
   - systemdesign
   - cache
+  - fundamental
 ---
 ![[cache.png|697]]
 

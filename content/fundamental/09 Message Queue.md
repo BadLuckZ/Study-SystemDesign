@@ -3,6 +3,7 @@ title: 09 Message Queue
 tags:
   - systemdesign
   - message_queue
+  - fundamental
 ---
 ![[message_queue_point2point.png]]
 ![[message_queue_pubsub.png]]

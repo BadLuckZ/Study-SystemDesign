@@ -4,6 +4,7 @@ tags:
   - systemdesign
   - proxy
   - forward_proxy
+  - fundamental
 ---
 ![[forward_proxy.png]]
 

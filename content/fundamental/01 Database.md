@@ -5,6 +5,7 @@ tags:
   - systemdesign
   - cap_theorem
   - acid_properties
+  - fundamental
 ---
 Database คือที่เก็บข้อมูล แบ่งเป็น 2 ประเภทหลักคือ **Relational Database (SQL)** และ **Non-Relational Database (NoSQL)** ต่างกันที่โครงสร้างข้อมูล วิธีดึงข้อมูล และ scaling
 

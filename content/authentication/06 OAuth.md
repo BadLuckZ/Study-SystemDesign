@@ -2,11 +2,9 @@
 title: 06 OAuth
 tags:
   - systemdesign
-  - authentication
   - oauth
-  - access_token
-  - refresh_token
   - pkce
+  - authorization
 ---
 น่าจะเคยได้ยินคำว่า OAuth มาบ้างแหละ เช่น Google OAuth แต่เคยสงสัยมั้ยว่า OAuth คืออะไร? ถึงไม่สงสัยก็ไม่เป็นไร จะแพล่มอยู่ดี 
 
@@ -31,11 +29,16 @@ Flow จะเป็นประมาณนี้ (เผื่อนึกภ�
 - **Rancher** = Client (คนอยากได้รูป)
 
 เพราะงั้น Flow ก็จะเป็นประมาณนี้
+0. User ลงทะเบียน Application กับ Google ทำให้ได้รับ Client ID กับ Client Secret มาใส่ใน .env ของ Application Server
 1. Rancher พา User ไปหน้า Login ของ Google ที่เชื่อมกับ Auth Server
-2. User กดเลือก Email ที่จะ Login จากนั้นก็จะขึ้นหน้าข้อมูลว่า Rancher จะขอเข้าใช้งานข้อมูลของ Google อย่างไรบ้าง -> สมมติว่า User อนุญาตเลยละกัน Rancher Server ก็จะส่ง Client Secret ติดไปด้วยเพื่อบอกว่า Rancher Server เป็นคนขอ Code นี้
+2. User กดเลือก Email ที่จะ Login จากนั้นก็จะขึ้นหน้าข้อมูลว่า Rancher จะขอเข้าใช้งานข้อมูลของ Google อย่างไรบ้าง
 3. Auth Server ส่ง Authorization Code กลับมาให้ Rancher
 4. Rancher Server นำ Authorization Code ไปแลก Access Token กับ Refresh Token กับ Auth Server โดยมี Client Secret ติดไปด้วย (กำหนดไว้ใน .env ของ Backend) เพื่อใช้ยืนยันตัวเอง
-5. Auth Server คืน Access Token และ Refresh Token สำหรับให้ Rancher Server เข้าถึงข้อมูลใน Google Photo ได้ -> แล้ว Access Token กับ Refresh Token คืออะไร? อ่านต่อใน [[01 Access Token|Access Token]] กับ [[02 Refresh Token|Refresh Token]]
+
+>[!Caution] Access Token นี้ต่างกับ Access Token ที่ Server เราเป็นผู้สร้างเอง
+>เพราะ Access Token นี้ทำเพียง Authorization ว่า User สามารถเข้าใช้งาน Resources ได้ ไม่ได้ใช้เพื่อยืนยันตัวตนของ Client แต่อย่างใด อย่าสับสนกัน
+
+5. Auth Server คืน Access Token และ Refresh Token สำหรับให้ Rancher Server เข้าถึงข้อมูลใน Google Photo ได้
 6. Rancher Server นำ Access Token ที่ได้ไปดึงข้อมูลจาก Google Photo ได้
 
 >[!Note] แล้วทำไมต้องเป็น Code ก่อน ไม่คืน Access Token มาเลยอ่ะ
@@ -57,7 +60,7 @@ Flow จะเป็นประมาณนี้ (เผื่อนึกภ�
 
 ## 3. OAuth ไม่ใช่ Authentication แต่เป็น Authorization
 
-ตามนั้นเลย OAuth เป็นการให้ Consent กับ Application นั้นๆ ว่าสามารถเข้าใช้งาน Resource ได้ แต่เรื่องการยืนยันว่าเป็น Application จริงๆ มั้ยนั้นไม่ได้ทำตรงๆ 
+ตามนั้นเลย OAuth เป็นการให้ Consent กับ Application นั้นๆ ผ่าน Access Token ว่า Client สามารถเข้าใช้งาน Resource ได้ แต่เรื่องการยืนยันว่าเป็น Application จริงๆ มั้ยนั้นไม่ได้ทำตรงๆ 
 
 ดูจากการกด "Login with Google" อ่ะ มันไม่ได้มี Process การเช็คว่าคนที่ใช้ Email ดังกล่าวคือเจ้าของ Email จริงๆ มั้ย เพราะใครจะมี Email ดังกล่าวก็ได้หมด attacker ก็มีได้ เพราะงั้น OAuth มันเลยมีหน้าที่แค่ Authorization ให้ App ใช้ Resource นั้นๆ ได้
 

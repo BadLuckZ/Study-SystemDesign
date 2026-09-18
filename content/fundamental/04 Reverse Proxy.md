@@ -5,6 +5,7 @@ tags:
   - proxy
   - load_balancer
   - reverse_proxy
+  - fundamental
 ---
 ![[reverse_proxy.png]]
 

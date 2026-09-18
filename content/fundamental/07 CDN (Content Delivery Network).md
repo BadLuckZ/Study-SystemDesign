@@ -4,6 +4,7 @@ tags:
   - database_optimization
   - systemdesign
   - cdn
+  - fundamental
 ---
 ![[content_delivery_network.png|689]]
 

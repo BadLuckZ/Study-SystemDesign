@@ -6,6 +6,7 @@ tags:
   - api
   - grpc
   - message_queue
+  - fundamental
 ---
 ![[microservices.png]]
 

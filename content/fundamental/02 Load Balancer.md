@@ -5,6 +5,7 @@ tags:
   - systemdesign
   - database_optimization
   - load_balancer
+  - fundamental
 ---
 ![[load_balancer.png]]
 

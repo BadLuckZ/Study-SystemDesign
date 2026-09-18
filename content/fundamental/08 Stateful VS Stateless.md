@@ -4,6 +4,7 @@ tags:
   - systemdesign
   - stateful
   - stateless
+  - fundamental
 ---
 ![[stateful_stateless.png]]
 
