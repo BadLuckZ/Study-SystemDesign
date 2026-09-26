@@ -142,7 +142,7 @@ Pay-out ก็คล้ายๆ กับ Pay-in นะ โดยใช้ PSP 
 > - **Redirect URL** - Browser ของ User เด้งกลับมา ไว้ให้ **User เห็น** ผล อาจไม่มาถ้า User ปิดจอ
 > - **Webhook** - PSP ยิงมาหา **Server เรา** โดยตรง ไว้ให้ **ระบบ** อัปเดตสถานะจริง มาเสมอไม่ว่า User จะปิดจอหรือไม่
 > 
-> เพราะงั้นระบบต้องยึด Webhook เป็นแหล่งความจริง ไม่ใช่ Redirect URL
+> เพราะงั้นระบบต้องยึด Webhook เป็นแหล่งความจริง ไม่ใช่ Redirect URL (แล้ว Webhook คืออะไร? - อ่านต่อได้ใน [[15 Webhook|Webhook]])
 
 ### 2. Reconciliation
 
