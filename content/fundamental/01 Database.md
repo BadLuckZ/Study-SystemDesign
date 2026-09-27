@@ -24,12 +24,12 @@ Database คือที่เก็บข้อมูล แบ่งเป็�
 
 คุณสมบัติที่การันตีว่า Transaction จะทำงานถูกต้องและน่าเชื่อถือ
 
-|Property|ความหมาย|กลไกที่ใช้|
-|---|---|---|
-|**Atomicity**|ถ้ามี action ย่อยใน transaction ทำไม่สำเร็จ ระบบจะ**ย้อนกลับทั้งหมด** (all or nothing)|Rollback|
-|**Consistency**|ระบบจะ**ปฏิเสธ**การเปลี่ยนแปลงที่ทำให้ข้อมูลผิดเงื่อนไข (constraint) ที่กำหนดไว้|Constraint|
-|**Isolation**|Transaction ที่ทำงานพร้อมกันจะไม่รบกวนกัน เหมือนถูกจัดคิวให้มีลำดับก่อน-หลัง|Multi-Version Concurrency Control (MVCC)|
-|**Durability**|เมื่อ transaction สำเร็จแล้ว ผลลัพธ์จะ**คงอยู่ถาวร** แม้ระบบ crash|Transaction Log (WAL)|
+| Property        | ความหมาย                                                                               | กลไกที่ใช้                               |
+| --------------- | -------------------------------------------------------------------------------------- | ---------------------------------------- |
+| **Atomicity**   | ถ้ามี action ย่อยใน transaction ทำไม่สำเร็จ ระบบจะ**ย้อนกลับทั้งหมด** (all or nothing) | Rollback                                 |
+| **Consistency** | ระบบจะ**ปฏิเสธ**การเปลี่ยนแปลงที่ทำให้ข้อมูลผิดเงื่อนไข (constraint) ที่กำหนดไว้       | Constraint                               |
+| **Isolation**   | Transaction ที่ทำงานพร้อมกันจะไม่รบกวนกัน เหมือนถูกจัดคิวให้มีลำดับก่อน-หลัง           | Multi-Version Concurrency Control (MVCC) |
+| **Durability**  | เมื่อ transaction สำเร็จแล้ว ผลลัพธ์จะ**คงอยู่ถาวร** แม้ระบบ crash                     | Transaction Log (WAL)                    |
 
 > [!tip] จำง่ายๆ **A**tomicity = ทำให้ครบหรือไม่ทำเลย **C**onsistency = ข้อมูลต้องถูกกฎเสมอ **I**solation = ทำพร้อมกันแต่ไม่ชนกัน **D**urability = สำเร็จแล้วหายไม่ได้
 
