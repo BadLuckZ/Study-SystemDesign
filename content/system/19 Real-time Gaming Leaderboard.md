@@ -233,7 +233,7 @@ ZREVRANGE leaderboard_feb_2021 357 365
 
 จะว่าอย่างงั้นอย่างงี้ก็เถอะ งานนี้ NoSQL ก็ทำได้นะ อย่างการใช้ DynamoDB โดยใช้ `game_name#{year-month}` เป็น Partition Key และใช้ Score เป็น Sort Key
 
-![[software-design-notes/images/leaderboard_dynamodb_partitionkey_sortkey.png]]
+![[leaderboard_dynamodb_partitionkey_sortkey.png]]
 
 ปัญหาคือ...ข้อมูลทั้งเดือนจะไปกองอยู่ใน Partition เดียว เพราะมี Partition Key ที่เหมือนกัน ทำให้ Partition นั้นกลายเป็น Hot Partition ที่มี Load หนักอยู่ตัวเดียว 
 
