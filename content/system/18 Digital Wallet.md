@@ -13,6 +13,7 @@ tags:
   - raft
   - database_partition
   - event_sourcing
+  - service_discovery
 ---
 
 วันนี้เรามาต่อเพิ่มเติมในเรื่อง Digital Wallet ละกัน เป็นเหมือนส่วนขยายจาก [[15 Payment System|Payment System]] ตรงในส่วนที่เป็น Paypal หรือ PSP อ่ะว่าทำงานยังไง เพราะงั้นเรามาดูกัน
