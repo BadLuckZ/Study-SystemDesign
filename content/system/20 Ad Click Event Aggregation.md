@@ -11,6 +11,7 @@ tags:
   - hotspot
   - snapshot
   - reconciliation
+  - delivery_sementics
 ---
 ไม่ว่าจะ platform ไหนๆ มันก็จะมี ads เต็มไปหมด จะเป็น Banner เล็กๆ ใน Platform หรือว่าเป็น Video เลย กระทั่ง Platform ยอดนิยมยาก Google, Facebook, Tiktok ก็ยังปรากฎ Ads Area เลย เพราะมันก็เป็นแหล่งที่ทำเงินได้เยอะมากๆ อ่ะนะ จากจำนวนการกด Click ของ User ที่ผ่านไปมาอ่ะแหละ แล้วระบบแบบนี้มันทำยังไงกันนะ...
 
