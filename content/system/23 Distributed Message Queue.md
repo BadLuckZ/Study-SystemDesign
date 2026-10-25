@@ -9,7 +9,7 @@ tags:
   - database_partition
   - database_replication
   - service_discovery
-  - delivery_sementics
+  - delivery_semantics
 ---
 วันนี้เราจะมาสร้าง Distributed Message Queue กัน คือตัวที่เราหยิบมาใช้แทบทุกบทอย่าง Kafka นั่นแหละ หน้าที่หลักคือ**รับ Message จาก Producer เก็บไว้อย่างปลอดภัย แล้วส่งต่อให้ Consumer ตามลำดับ** (พื้นฐานอ่านได้ใน [[09 Message Queue|Message Queue]])
 
@@ -23,7 +23,8 @@ A1: ข้อความอย่างเดียว ขนาดหลัก
 Q2: Message ถูกอ่านซ้ำได้มั้ยครับ? 
 A2: ได้นะ Consumer หลายตัวอ่าน Message เดียวกันได้
 
-Q3: Message ต้องถูกอ่านตามลำดับที่ส่งเข้ามามั้ยครับ? A3: ต้องตามลำดับ
+Q3: Message ต้องถูกอ่านตามลำดับที่ส่งเข้ามามั้ยครับ? 
+A3: ต้องตามลำดับ
 
 Q4: ต้องเก็บ Message ลง Disk ด้วยมั้ยครับ แล้วต้องเก็บนานแค่ไหน? 
 A4: ต้องเก็บ เอาเป็น 2 สัปดาห์ละกัน
@@ -223,7 +224,7 @@ Consumer บอกว่าจะอ่าน Partition ไหน ตั้ง�
 - พอรายชื่อเปลี่ยน ก็เลือก **Leader ของ Group** ใหม่
 - Leader สร้าง **Partition Dispatch Plan** (แผนแบ่ง Partition) ส่งให้ Coordinator แล้ว Coordinator กระจายให้ Consumer ตัวอื่นๆ
 
-![[dmq_consumer_rebalance'.png]]
+![[dmq_consumer_rebalance.png]]
 
 ลองดูตอนมี Consumer ใหม่เข้ามา สมมติ Topic มี 4 Partition
 1. ตอนแรกมีแค่ Consumer A ดูแลทุก Partition และส่ง Heartbeat ให้ Coordinator อยู่
@@ -268,7 +269,7 @@ Hardware เสียเป็นเรื่องปกติ ถ้า Disk �
 - Producer ส่ง Message ไปที่ Leader เท่านั้น แล้ว Follower คอยดึง Message ใหม่จาก Leader
 - พอ Message ซิงค์ไปที่ Replica "พอ" แล้ว Leader ถึงจะตอบ Ack กลับไปให้ Producer
 
-การกระจาย Replica แบบนี้เรียกว่า **Replica Distribution Plan** สร้างโดย Active Controller แล้วเก็บไว้ใน Metadata Storage เช่น ในภาพS
+การกระจาย Replica แบบนี้เรียกว่า **Replica Distribution Plan** สร้างโดย Active Controller แล้วเก็บไว้ใน Metadata Storage
 ```txt
 Topic A Partition 1: Broker 1 (Leader), 2, 3
 Topic A Partition 2: Broker 2 (Leader), 3, 4

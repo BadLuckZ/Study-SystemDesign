@@ -10,7 +10,7 @@ tags:
   - communication
   - retry
   - idempotency
-  - delivery_sementics
+  - delivery_semantics
 ---
 รอบนี้เรามาระบบที่ยิ่งใหญ่ ละก็สำคัญมากๆ ระบบนึงหน่อยละกัน ก็คือ Payment System นั่นเอง สำคัญมั้ยหล่ะ เงินๆ ทองๆ อ่ะ พลาดขึ้นมานี่ชิบหายได้เลยนะ จะทำยังไง มาดูกัน
 
