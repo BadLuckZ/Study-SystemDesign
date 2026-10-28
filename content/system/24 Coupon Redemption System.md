@@ -65,9 +65,9 @@ A7: 10 ล้าน DAU และมี Flash Campaign ที่คูปอง�
 ## 2. Sketch ภาพระบบคร่าวๆ
 
 ก่อนอื่น มีอยู่ 3 คำที่ต้องแยกให้ออกก่อน
-- Campaign: ภาพใหญ่ทางธุรกิจ เช่น "11.11 Mega Sale" ซึ่งมีช่วงเวลา งบรวม และเจ้าของแคมเปญ
-- Coupon Template: แม่แบบของคูปอง 1 ประเภทในแคมเปญ เช่น "ลด 100 เมื่อซื้อครบ 500 จำนวน 100,000 ใบ คนละ 1 ใบ"
-- Coupon Instance (User Coupon): คูปองแต่ละใบที่อยู่ในมือ User จริงๆ ถูกสร้างตอนกดเก็บหรือกรอก Code แต่ละใบมีสถานะของตัวเอง ไม่ขึ้นกับใบอื่น
+- **Campaign**: ภาพใหญ่ทางธุรกิจ เช่น "11.11 Mega Sale" ซึ่งมีช่วงเวลา งบรวม และเจ้าของแคมเปญ
+- **Coupon Template**: แม่แบบของคูปอง 1 ประเภทในแคมเปญ เช่น "ลด 100 เมื่อซื้อครบ 500 จำนวน 100,000 ใบ คนละ 1 ใบ"
+- **Coupon Instance (User Coupon)**: คูปองแต่ละใบที่อยู่ในมือ User จริงๆ ถูกสร้างตอนกดเก็บหรือกรอก Code แต่ละใบมีสถานะของตัวเอง ไม่ขึ้นกับใบอื่น
 
 ![[coupon_campaign_template_instance.png]]
 
@@ -363,7 +363,7 @@ AND order_id = 'ORD-1';
 | B      | 400  | 40%     | 40               | 360      |
 
 ถ้าคืนสินค้า B ก็คืนเงิน **360** บาท ไม่ใช่ 400 บาท เพราะส่วนลด 40 บาทถูกแบ่งให้สินค้า B ไปแล้ว 
-เพราะงั้นตอนจองคูปองต้องคำนวณและบันทึกการแบ่งนี้ไว้ใน `redemption_log` เลย และถ้าแบ่งแล้วมีเศษสตางค์ ก็ปัดให้สินค้าชิ้นสุดท้าย เพื่อให้ผลรวมตรงกับส่วนลดทั้งหมดพอ
+เพราะงั้นตอนจองคูปองต้องคำนวณและบันทึกการแบ่งนี้ไว้ใน `redemption_log` เลย และถ้าแบ่งแล้วมีเศษสตางค์ ก็ปัดให้สินค้าชิ้นสุดท้าย เพื่อให้ผลรวมตรงกับส่วนลดทั้งหมดพอดี
 
 ### 4. Promotion Engine และการใช้หลาย Coupon
 
@@ -464,18 +464,18 @@ Flow ในการคำนวณส่วนลด ก็จะเป็น�
 		{
 			"type": "ANY",
 			"children": [
-				{"type": "LEAF", "field": "user_segment", "op": "EQ", "value": "new_user", "children": NULL},
-				{"type": "LEAF", "field": "member_tier", "op": "EQ", "value": "GOLD", "children": NULL}
+				{"type": "LEAF", "field": "user_segment", "op": "EQ", "value": "new_user", "children": null},
+				{"type": "LEAF", "field": "member_tier", "op": "EQ", "value": "GOLD", "children": null}
 			]
 		},
 		{
 			"type": "ANY",
 			"children": [
-				{"type": "LEAF", "field": "category_spend.fashion", "op": "GTE", "value": 100000, "children": NULL},
-				{"type": "LEAF", "field": "category_spend.beauty", "op": "GTE", "value": 50000, "children": NULL}
+				{"type": "LEAF", "field": "category_spend.fashion", "op": "GTE", "value": 100000, "children": null},
+				{"type": "LEAF", "field": "category_spend.beauty", "op": "GTE", "value": 50000, "children": null}
 			]
 		},
-		{"type": "LEAF", "field": "payment_method", "op": "EQ", "value": "credit_card_bank_x", "children": NULL}
+		{"type": "LEAF", "field": "payment_method", "op": "EQ", "value": "credit_card_bank_x", "children": null}
 	]
 }
 ```
@@ -556,7 +556,7 @@ AND budget_used + 10000 <= budget_total;
 -- affected rows = 0 → งบไม่พอแล้ว
 ```
 
-**ปัญหาคือ** ทุก Order ที่ใช้คูปองในแคมเปญนี้ ต้องมา UPDATE แถวเดียวกันหมด คือ Campaign Schema แถวที่ campaign_id = `CP1` ก็จะกลายเป็น Hot Row แบบเดียวกับข้อ 1. อีก
+**ปัญหาคือ** ทุก Order ที่ใช้คูปองในแคมเปญนี้ ต้องมา UPDATE แถวเดียวกันหมด คือใน Campaign Schema แถวที่ campaign_id = `CP1` ก็จะกลายเป็น Hot Row แบบเดียวกับข้อ 1. อีก
 
 ทางแก้คือ**แบ่งงบเป็นก้อน**ให้แต่ละ Instance ของ Coupon Service ถือไว้ เช่น งบ 1 ล้านบาท มี 5 Instance
 1. แต่ละ Instance ขอก้อนงบจาก DB ทีละ 10,000 บาท (ใช้ Conditional Update ข้างบน แต่ตัดทีละ 10,000)
